@@ -10,13 +10,13 @@ die() {
 { git remote -v show | grep upstream; } >/dev/null \
   && die 'upstream already added.'
 
-{ git remote -v show | grep no-more-secrets | grep '^origin'; } >/dev/null \
-  || die 'origin is not from the no-more-secrets account.'
+{ git remote -v show | grep fractalminer | grep '^origin'; } >/dev/null \
+  || die 'origin is not from the fractalminer account.'
 
 # The `git remote -v show` command will produce an output like:
 #
-#   origin  git@github.com:no-more-secrets/sol2 (fetch)
-#   origin  git@github.com:no-more-secrets/sol2 (push)
+#   origin  git@github.com:fractalminer/sol2 (fetch)
+#   origin  git@github.com:fractalminer/sol2 (push)
 #
 repo="$(git remote -v show | awk '{print $2}' | awk -F/ '{print $NF}' | sort -u)"
 
@@ -29,9 +29,9 @@ j = json.loads( sys.stdin.read() )
 print( j["parent"]["full_name"] )
 '
 
-forked_acct_repo="$(curl -s "https://api.github.com/repos/no-more-secrets/$repo" | python3 -c "$py_code")"
+forked_acct_repo="$(curl -s "https://api.github.com/repos/fractalminer/$repo" | python3 -c "$py_code")"
 
-parent_repo="https://no-more-secrets@github.com/$forked_acct_repo"
+parent_repo="https://fractalminer@github.com/$forked_acct_repo"
 
 echo "Adding new remote 'upstream' pointing to:"
 echo
