@@ -29,7 +29,7 @@ prefix="$tools/$project_key"
 # Only needed in builds that don't have an install step.
 mkdir -p $prefix
 
-acct="dpacbach"
+acct="fractalminer"
 repo="ninja"
 
 # ---------------------------------------------------------------
