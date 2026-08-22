@@ -18,10 +18,10 @@ project(
 function( force_compiler_color_diagnostics )
 	if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
 		# using Clang (either linux or apple)
-    set( flag "-fcolor-diagnostics" )
+        set( flag "-fcolor-diagnostics" )
 	elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
 		# using GCC
-    set( flag "-fdiagnostics-color=always" )
+        set( flag "-fdiagnostics-color=always" )
 	elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel" )
 		# using Intel C++
 	elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
