@@ -12,14 +12,14 @@ pre-build := $(if $(wildcard scripts/pre-build.sh),scripts/pre-build.sh,:)
 
 cmake_targets := all clean test rn cmake-run game gl_test map unittest
 
-ifeq ($(origin, NINJA_STATUS_PRINT_MODE),)
+ifeq ($(origin NINJA_STATUS_PRINT_MODE),undefined)
 	NINJA_STATUS_PRINT_MODE=scrolling
 endif
 
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
 export DSICILIA_NINJA_REFORMAT_MODE=pretty
 
-ifneq ($(origin, KEEP_GOING),undefined)
+ifneq ($(origin KEEP_GOING),undefined)
   NINJA_KEEP_GOING = -k0
   MAKE_KEEP_GOING = -k
 endif
