@@ -13,11 +13,16 @@ project(
     LANGUAGES CXX
 )
 
-# Needed so that when we put ccache in "Depend Mode", which means
-# that it will hash the header dependencies of a file instead of
-# running the preprocessor on it, it will effectively exclude
-# system headers (-MD ==> -MMD) to save time. NOTE: this must go
-# after the project().
+# To support the build farm we want to put ccache in "Depend
+# Mode", which means it will attempt to find a cache hit only
+# using "Direct Mode" and will not fall back to "Preprocessor
+# Mode". Direct mode means that it will hash the header dependen-
+# cies of a file instead of running the preprocessor on it, which
+# is supposed to be faster, at the expense of an increase in
+# cache misses (e.g. relating to changes to macros and comments).
+# Since it is hashing headers we want to be sure to use (-MD ==>
+# -MMD) to save time since it excludes system headers. NOTE: this
+# must go after the project().
 set( CMAKE_DEPFILE_FLAGS_C   "-MMD -MT <DEP_TARGET> -MF <DEP_FILE>" )
 set( CMAKE_DEPFILE_FLAGS_CXX "-MMD -MT <DEP_TARGET> -MF <DEP_FILE>" )
 
