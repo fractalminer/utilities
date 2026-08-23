@@ -13,6 +13,14 @@ project(
     LANGUAGES CXX
 )
 
+# Needed so that when we put ccache in "Depend Mode", which means
+# that it will hash the header dependencies of a file instead of
+# running the preprocessor on it, it will effectively exclude
+# system headers (-MD ==> -MMD) to save time. NOTE: this must go
+# after the project().
+set( CMAKE_DEPFILE_FLAGS_C   "-MMD -MT <DEP_TARGET> -MF <DEP_FILE>" )
+set( CMAKE_DEPFILE_FLAGS_CXX "-MMD -MT <DEP_TARGET> -MF <DEP_FILE>" )
+
 # === colors ======================================================
 
 function( force_compiler_color_diagnostics )
