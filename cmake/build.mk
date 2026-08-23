@@ -16,6 +16,12 @@ ifeq ($(origin NINJA_STATUS_PRINT_MODE),undefined)
 	NINJA_STATUS_PRINT_MODE=scrolling
 endif
 
+ifneq ($(origin REMOTE),undefined)
+	export CCACHE_DEPEND     := true
+	export CCACHE_PREFIX_CPP := xxx
+	export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
+endif
+
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
 export DSICILIA_NINJA_REFORMAT_MODE=pretty
 
@@ -41,7 +47,7 @@ else
     # case).
     $(cmake_targets): $(build-current)
 	    @$(pre-build)
-	    @cd $(build-current) && ninja $(NINJA_KEEP_GOING) $@
+	    @cd $(build-current) && ninja $(NINJA_KEEP_GOING) -j72 $@
 	    @touch $(stamp-file)
 endif
 
