@@ -22,7 +22,7 @@ ifneq ($(origin REMOTE),undefined)
 	export CCACHE_DEPEND     := true
 	export CCACHE_PREFIX_CPP := xxx
 	export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
-  concurrency := -j100
+  concurrency := -j117
 endif
 
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
