@@ -16,10 +16,13 @@ ifeq ($(origin NINJA_STATUS_PRINT_MODE),undefined)
 	NINJA_STATUS_PRINT_MODE=scrolling
 endif
 
+concurrency :=
+
 ifneq ($(origin REMOTE),undefined)
 	export CCACHE_DEPEND     := true
 	export CCACHE_PREFIX_CPP := xxx
 	export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
+  concurrency := -j90
 endif
 
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
@@ -39,7 +42,7 @@ ifneq (,$(wildcard $(build-current)/Makefile))
     # and just define the targets once.
     $(cmake_targets): $(build-current)
 	    @$(pre-build)
-	    @cd $(build-current) && $(MAKE) $(MAKE_KEEP_GOING) -s $@
+	    @cd $(build-current) && $(MAKE) $(MAKE_KEEP_GOING) -s $(concurrency) $@
 	    @touch $(stamp-file)
 else
     # Use cmake to build here because it is the preferred
@@ -47,7 +50,7 @@ else
     # case).
     $(cmake_targets): $(build-current)
 	    @$(pre-build)
-	    @cd $(build-current) && ninja $(NINJA_KEEP_GOING) -j72 $@
+	    @cd $(build-current) && ninja $(NINJA_KEEP_GOING) $(concurrency) $@
 	    @touch $(stamp-file)
 endif
 
