@@ -21,9 +21,12 @@ concurrency :=
 export CCACHE_DEPEND := true
 
 ifneq ($(origin REMOTE),undefined)
-	export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
-	export CCACHE_PREFIX_CPP := xxx
-  concurrency := -j130
+  export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
+  export CCACHE_PREFIX_CPP := xxx
+  concurrency := -j$(shell $(HOME)/dev/redist/src/available-concurrency.sh)
+  ifneq ($(.SHELLSTATUS),0)
+    $(error No available build farm workers)
+  endif
 endif
 
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
