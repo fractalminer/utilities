@@ -18,10 +18,11 @@ endif
 
 concurrency :=
 
+export CCACHE_DEPEND := true
+
 ifneq ($(origin REMOTE),undefined)
-	export CCACHE_DEPEND     := true
-	export CCACHE_PREFIX_CPP := xxx
 	export CCACHE_PREFIX     := $(HOME)/dev/redist/src/builder.sh
+	export CCACHE_PREFIX_CPP := xxx
   concurrency := -j130
 endif
 
