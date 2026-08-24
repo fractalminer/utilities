@@ -1,0 +1,24 @@
+local WORKER = command{ '/home/dsicilia/dev/redist/src/run-remote-worker.sh' }
+
+return vertical{
+  [1]=horizontal{
+    [1]=vertical{
+      [1]=WORKER,
+      [2]=WORKER,
+    },
+    [2]=vertical{
+      [1]=WORKER,
+      [2]=WORKER,
+    },
+  },
+  [2]=horizontal{
+    [1]=vertical{
+      [1]=WORKER,
+      [2]=WORKER,
+    },
+    [2]=vertical{
+      [1]=WORKER,
+      [2]=WORKER,
+    },
+  },
+}
