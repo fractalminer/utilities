@@ -13,7 +13,7 @@ pre-build := $(if $(wildcard scripts/pre-build.sh),scripts/pre-build.sh,:)
 cmake_targets := all clean test rn cmake-run game gl_test map unittest
 
 ifeq ($(origin NINJA_STATUS_PRINT_MODE),undefined)
-	NINJA_STATUS_PRINT_MODE=scrolling
+  NINJA_STATUS_PRINT_MODE := scrolling
 endif
 
 concurrency :=
