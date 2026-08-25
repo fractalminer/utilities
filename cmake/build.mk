@@ -25,7 +25,11 @@ ifneq ($(origin REMOTE),undefined)
   export CCACHE_PREFIX_CPP := xxx
   concurrency := -j$(shell $(HOME)/dev/redist/src/available-concurrency.sh)
   ifneq ($(.SHELLSTATUS),0)
-    $(error No available build farm workers)
+    # We could just do an $(error ...) here, but this extra stuff
+    # will erase the extra noise that make emits at the start of
+    # the line (carriage return + clear line) and then emit some
+    # colors for the error message.
+    $(error $(shell printf '\r\033[2K\033[1m\033[31merror\033[00m: no available build farm workers'))
   endif
 endif
 
