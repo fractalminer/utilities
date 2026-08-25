@@ -32,7 +32,7 @@ endif
 export DSICILIA_NINJA_STATUS_PRINT_MODE=$(NINJA_STATUS_PRINT_MODE)
 export DSICILIA_NINJA_REFORMAT_MODE=pretty
 
-ifneq ($(origin KEEP_GOING),undefined)
+ifeq ($(origin NO_KEEP_GOING),undefined)
   NINJA_KEEP_GOING = -k0
   MAKE_KEEP_GOING = -k
 endif
