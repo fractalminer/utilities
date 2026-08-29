@@ -171,6 +171,8 @@ wait $pids || {
   exit 1
 }
 
+if (( CONFIGURE_ONLY )); then exit 0; fi
+
 clear
 
 for flags in "${platforms[@]}"; do

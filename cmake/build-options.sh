@@ -14,6 +14,7 @@ add_line "Update & Build Debug & Release (clang)"
 add_line "Update & Build Debug & Release (gcc+clang)"
 add_line "Update & Build All Platforms"
 add_line "Build All Platforms"
+add_line "Configure All Platforms"
 add_line "Build Debug & Release (clang)"
 add_line "Build Debug & Release (gcc)"
 add_line "Build Debug & Release (gcc+clang)"
@@ -73,6 +74,8 @@ restore() {
   ~/dev/revolution-now/tools/set-default-configuration.sh
 }
 
+mkdir -p .builds
+
 case "$answer" in
   "Update & Build (release)")
     update
@@ -104,6 +107,10 @@ case "$answer" in
     ~/dev/utilities/cmake/build-all-platforms.sh
     ;;
   "Build All Platforms")
+    ~/dev/utilities/cmake/build-all-platforms.sh
+    ;;
+  "Configure All Platforms")
+    env CONFIGURE_ONLY=1 \
     ~/dev/utilities/cmake/build-all-platforms.sh
     ;;
   "Build Debug & Release (clang)")
