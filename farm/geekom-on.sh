@@ -13,3 +13,6 @@ wakeonlan 38:f7:cd:da:5b:e6  # geekom1
 
 echo 'waking geekom2...'
 wakeonlan 38:f7:cd:da:ba:08  # geekom2
+
+echo 'waking geekom2...'
+wakeonlan 38:f7:cd:da:83:f8  # geekom3

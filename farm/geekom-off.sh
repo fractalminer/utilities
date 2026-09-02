@@ -12,3 +12,4 @@ host_off() {
 
 host_off geekom1
 host_off geekom2
+host_off geekom3
