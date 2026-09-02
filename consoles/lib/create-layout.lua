@@ -84,4 +84,5 @@ function dispatch( t )
   dispatch_fn[t.type]( t )
 end
 
+print( 'tmux set synchronize-panes yes' )
 dispatch( layout )
