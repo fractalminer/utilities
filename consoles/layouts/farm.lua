@@ -7,7 +7,12 @@ local NONE = command{ 'echo none' }
 return vertical{
   [1]=horizontal{
     [1]=vertical{
-      [1]=WORKER( 'thelio' ),
+      -- For thelio for some reason when we use its hostname it
+      -- tries to go to its wifi address even when wifi is turned
+      -- off, so we need to specify the ethernet one. We don't
+      -- want to turn on its wifi and access it that way because
+      -- there is a lot more latency there for some reason.
+      [1]=WORKER( '192.168.1.214' ),
       [2]=WORKER( 'meerkat' ),
     },
     [2]=vertical{
