@@ -26,7 +26,7 @@ return vertical{
       [2]=WORKER( 'geekom2' ),
     },
     [2]=vertical{
-      [1]=NONE,
+      [1]=WORKER( 'geekom3' ),
       [2]=NONE,
     },
   },
