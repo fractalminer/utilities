@@ -5,5 +5,5 @@ set -eo pipefail
 # is used in conjunction with forward-thelio.sh (which runs on
 # thelio).
 
-# redis localhost <- redis linode
+echo "... redis localhost <- redis linode ..."
 ssh -N -L 6379:localhost:6379 linode
