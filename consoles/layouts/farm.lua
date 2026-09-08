@@ -12,6 +12,8 @@ return vertical{
       -- off, so we need to specify the ethernet one. We don't
       -- want to turn on its wifi and access it that way because
       -- there is a lot more latency there for some reason.
+      -- TODO: make the thelio hostname default to the ethernet
+      -- interface.
       [1]=WORKER( '192.168.1.214' ),
       [2]=WORKER( 'meerkat' ),
     },
