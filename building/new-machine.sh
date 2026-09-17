@@ -40,6 +40,9 @@ bash lua-format.sh
 log '==================== lua-language-server ===================='
 bash lua-language-server.sh
 
+log '========================== ccache ==========================='
+bash ccache.sh
+
 log '=================== glsl-language-server ===================='
 bash glsl-language-server.sh
 
