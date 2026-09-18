@@ -21,7 +21,7 @@ source util.sh
 # the software being built. Folders/links will be named with
 # this.
 project_key="libxdelta3"
-bin_name="libxdelta3"
+bin_name="xdelta3"
 
 tools="$HOME/dev/tools"
 mkdir -p "$tools"
