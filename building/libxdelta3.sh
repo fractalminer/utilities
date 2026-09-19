@@ -72,9 +72,13 @@ supplemental_install() {
     mkdir -p "$HOME/.local/bin"
     mkdir -p "$HOME/.local/include"
     mkdir -p "$HOME/.local/lib"
-    ln -sf "$prefix/bin/xdelta3"       "$HOME/.local/bin/xdelta3"
-    ln -sf "$prefix/include/xdelta3.h" "$HOME/.local/include/xdelta3.h"
-    ln -sf "$prefix/lib/libxdelta3.a"  "$HOME/.local/lib/libxdelta3.a"
+    mkdir -p "$HOME/.local/lib/pkgconfig"
+    mkdir -p "$HOME/.local/lib/cmake"
+    cp -a "$prefix/bin/xdelta3"              ~/.local/bin/
+    cp -a "$prefix/include/xdelta3.h"        ~/.local/include/
+    cp -a "$prefix/lib/libxdelta3.a"         ~/.local/lib/
+    cp -a "$prefix/lib/pkgconfig/xdelta3.pc" ~/.local/lib/pkgconfig/
+    cp -a "$prefix/lib/cmake/xdelta3"        ~/.local/lib/cmake/
 }
 
 # ---------------------------------------------------------------
