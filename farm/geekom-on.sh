@@ -14,19 +14,19 @@ ok=0
 
 if [[ "$host" == ALL || "$host" == geekom1 ]]; then
   echo 'waking geekom1...'
-  echo wakeonlan 38:f7:cd:da:5b:e6  # geekom1
+  wakeonlan 38:f7:cd:da:5b:e6  # geekom1
   ok=1
 fi
 
 if [[ "$host" == ALL || "$host" == geekom2 ]]; then
   echo 'waking geekom2...'
-  echo wakeonlan 38:f7:cd:da:ba:08  # geekom2
+  wakeonlan 38:f7:cd:da:ba:08  # geekom2
   ok=1
 fi
 
 if [[ "$host" == ALL || "$host" == geekom3 ]]; then
   echo 'waking geekom2...'
-  echo wakeonlan 38:f7:cd:da:83:f8  # geekom3
+  wakeonlan 38:f7:cd:da:83:f8  # geekom3
   ok=1
 fi
 
