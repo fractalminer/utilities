@@ -7,8 +7,8 @@ local NONE = command{ 'echo none' }
 return vertical{
   [1]=horizontal{
     [1]=vertical{
-      [1]=WORKER( 'thelio' ),
-      [2]=WORKER( 'meerkat' ),
+      [1]=WORKER( 'thelio' ), --
+      [2]=WORKER( 'meerkat' ), --
     },
     [2]=vertical{
       [1]=WORKER( 'bonobo' ),
@@ -18,12 +18,12 @@ return vertical{
   },
   [2]=horizontal{
     [1]=vertical{
-      [1]=WORKER( 'geekom1' ),
-      [2]=WORKER( 'geekom2' ),
+      [1]=WORKER( 'geekom1' ), --
+      [2]=WORKER( 'geekom2' ), --
     },
     [2]=vertical{
-      [1]=WORKER( 'geekom3' ),
-      [2]=NONE,
+      [1]=WORKER( 'geekom3' ), --
+      [2]=NONE, --
     },
   },
 }
