@@ -10,6 +10,28 @@ host_off() {
   ssh "$host" sudo /usr/bin/systemctl poweroff
 }
 
-host_off geekom1
-host_off geekom2
-host_off geekom3
+host="${1:-ALL}"
+
+ok=0
+
+if [[ "$host" == ALL || "$host" == geekom1 ]]; then
+  echo host_off geekom1
+  ok=1
+fi
+
+if [[ "$host" == ALL || "$host" == geekom2 ]]; then
+  echo host_off geekom2
+  ok=1
+fi
+
+if [[ "$host" == ALL || "$host" == geekom3 ]]; then
+  echo host_off geekom3
+  ok=1
+fi
+
+if (( ok == 0 )); then
+  echo "cannot power off host $host" 1>&2
+  exit 1
+fi
+
+exit 0
