@@ -14,17 +14,17 @@ host="${1:-ALL}"
 
 ok=0
 
-if [[ "$host" == ALL || "$host" == geekom1 ]]; then
+if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then
   host_off geekom1
   ok=1
 fi
 
-if [[ "$host" == ALL || "$host" == geekom2 ]]; then
+if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then
   host_off geekom2
   ok=1
 fi
 
-if [[ "$host" == ALL || "$host" == geekom3 ]]; then
+if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then
   host_off geekom3
   ok=1
 fi
