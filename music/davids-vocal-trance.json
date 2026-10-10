@@ -340,17 +340,18 @@
     "album_name": "In the Dark"
   },
   {
-    "song_name": "Shivers - Rising Star Mix",
+    "song_name": "Shivers",
     "album_artists": [
       "Armin van Buuren"
     ],
     "contrib_artists": [
-      "Armin van Buuren"
+      "Armin van Buuren",
+      "Susana"
     ],
     "album_name": "Shivers / Birth Of An Angel"
   },
   {
-    "song_name": "Birth Of An Angel - Original Mix",
+    "song_name": "Birth Of An Angel - Extended Mix",
     "album_artists": [
       "Armin van Buuren"
     ],
@@ -942,5 +943,17 @@
       "Sophie Ellis-Bextor"
     ],
     "album_name": "Only Child"
+  },
+  {
+    "song_name": "Lost Myself (Coming Back) - Extended Mix",
+    "album_artists": [
+      "Tasadi",
+      "Numa"
+    ],
+    "contrib_artists": [
+      "Tasadi",
+      "Numa"
+    ],
+    "album_name": "Lost Myself (Coming Back)"
   }
 ]
