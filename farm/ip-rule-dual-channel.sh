@@ -99,12 +99,12 @@ cleanup() {
 
   if $wifi_rule_added; then
     sudo ip rule del priority "$WIFI_PRIO" \
-      oif "$WIFI_IF" table "$WIFI_TABLE" 2>/dev/null || true
+      from "$wifi_sn" table "$WIFI_TABLE" 2>/dev/null || true
   fi
 
   if $usbx_rule_added; then
     sudo ip rule del priority "$USBX_PRIO" \
-      oif "$USBX_IF" table "$USBX_TABLE" 2>/dev/null || true
+      from "$usbx_sn" table "$USBX_TABLE" 2>/dev/null || true
   fi
 
   if $wifi_table_created; then
@@ -148,13 +148,13 @@ sudo ip route add table "$USBX_TABLE" default via "$usbx_gw" dev "$USBX_IF"
 # ---------------------------------------------------------------
 # Select routing table according to the bound output interface.
 # ---------------------------------------------------------------
-sudo ip rule add priority "$WIFI_PRIO" oif "$WIFI_IF" table "$WIFI_TABLE"; wifi_rule_added=true
-sudo ip rule add priority "$USBX_PRIO" oif "$USBX_IF" table "$USBX_TABLE"; usbx_rule_added=true
+sudo ip rule add priority "$WIFI_PRIO" from "$wifi_sn" table "$WIFI_TABLE"; wifi_rule_added=true
+sudo ip rule add priority "$USBX_PRIO" from "$usbx_sn" table "$USBX_TABLE"; usbx_rule_added=true
 
 echo
 echo "Routes to Linode:"
-ip -4 route get "$LINODE_HOST" oif "$WIFI_IF"
-ip -4 route get "$LINODE_HOST" oif "$USBX_IF"
+ip -4 route get "$LINODE_HOST" from "$wifi_ip"
+ip -4 route get "$LINODE_HOST" from "$usbx_ip"
 
 # ---------------------------------------------------------------
 # Create SSH tunnels.
@@ -163,14 +163,14 @@ echo
 echo "Starting SSH tunnels..."
 
 ssh -N \
-  -B "$WIFI_IF" \
+  -b "$wifi_ip" \
   -o ExitOnForwardFailure=yes \
   -L "127.0.0.1:$WIFI_PORT:$REMOTE_REDIS_HOST:$REMOTE_REDIS_PORT" \
   "$LINODE_HOST" &
 wifi_ssh_pid=$!
 
 ssh -N \
-  -B "$USBX_IF" \
+  -b "$usbx_ip" \
   -o ExitOnForwardFailure=yes \
   -L "127.0.0.1:$USBX_PORT:$REMOTE_REDIS_HOST:$REMOTE_REDIS_PORT" \
   "$LINODE_HOST" &
