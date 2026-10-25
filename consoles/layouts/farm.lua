@@ -7,22 +7,22 @@ local NONE = command{ 'echo none' }
 return vertical{
   [1]=horizontal{
     [1]=vertical{
-      [1]=WORKER( 'thelio' ), --
-      [2]=WORKER( 'meerkat' ), --
+      [1]=WORKER( 'thelio.local' ), --
+      [2]=WORKER( 'meerkat.local' ), --
     },
     [2]=vertical{
-      [1]=WORKER( 'bonobo' ),
-      [2]=WORKER( 'darter2' ), -- darter2 wifi.
+      [1]=WORKER( 'bonobo.local' ),
+      [2]=WORKER( 'darter2.local' ), -- darter2 wifi.
       -- [2]=WORKER( '192.168.1.75' ), -- darter2 ethernet.
     },
   },
   [2]=horizontal{
     [1]=vertical{
-      [1]=WORKER( 'geekom1' ), --
-      [2]=WORKER( 'geekom2' ), --
+      [1]=WORKER( 'geekom1.local' ), --
+      [2]=WORKER( 'geekom2.local' ), --
     },
     [2]=vertical{
-      [1]=WORKER( 'geekom3' ), --
+      [1]=WORKER( 'geekom3.local' ), --
       [2]=NONE, --
     },
   },
