@@ -54,8 +54,8 @@ fi
 # Note that we've initiated the turn on of all boxes above to-
 # gether so that they can run in parallel before we start waiting
 # for any one of them.
-if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then wait_on geekom1; fi
-if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then wait_on geekom2; fi
-if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then wait_on geekom3; fi
+if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then wait_on geekom1.local; fi
+if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then wait_on geekom2.local; fi
+if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then wait_on geekom3.local; fi
 
 exit 0
