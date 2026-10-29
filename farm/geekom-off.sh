@@ -33,9 +33,9 @@ host="${1:-ALL}"
 
 ok=0
 
-if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then host_off geekom1; ok=1; fi
-if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then host_off geekom2; ok=1; fi
-if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then host_off geekom3; ok=1; fi
+if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then host_off geekom1.local; ok=1; fi
+if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then host_off geekom2.local; ok=1; fi
+if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then host_off geekom3.local; ok=1; fi
 
 if (( ok == 0 )); then
   echo "cannot power off host $host" 1>&2
@@ -45,8 +45,8 @@ fi
 # Note that we've initiated the turn off of all boxes above to-
 # gether so that they can run in parallel before we start waiting
 # for any one of them.
-if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then wait_off geekom1; fi
-if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then wait_off geekom2; fi
-if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then wait_off geekom3; fi
+if [[ "$host" == ALL || "$host" =~ geekom1.* ]]; then wait_off geekom1.local; fi
+if [[ "$host" == ALL || "$host" =~ geekom2.* ]]; then wait_off geekom2.local; fi
+if [[ "$host" == ALL || "$host" =~ geekom3.* ]]; then wait_off geekom3.local; fi
 
 exit 0

@@ -12,8 +12,8 @@ return vertical{
     },
     [2]=vertical{
       [1]=WORKER( 'bonobo.local' ),
-      [2]=WORKER( 'darter2.local' ), -- darter2 wifi.
-      -- [2]=WORKER( '192.168.1.75' ), -- darter2 ethernet.
+      -- [2]=WORKER( 'darter2.local' ), -- darter2 wifi.
+      [2]=WORKER( '192.168.1.76' ), -- darter2 ethernet.
     },
   },
   [2]=horizontal{
